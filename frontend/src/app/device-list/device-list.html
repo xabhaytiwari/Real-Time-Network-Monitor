@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Device Status</h2>
+  <div *ngIf="!devices.length">
+    <p>Loading devices or no devices found...</p>
+  </div>
+
+  <table *ngIf="devices.length > 0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>IP Address</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let device of devices">
+        <td>{{ device.name }}</td>
+        <td>{{ device.ipAddress }}</td>
+        <td>
+          <span class="status" [class]="device.status.toLowerCase()">
+            {{ device.status }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
